@@ -545,6 +545,28 @@ export default function SinkSyncPage() {
                 </p>
               </div>
 
+              {/* Apply Button or Status */}
+              <div className='mb-8'>
+                {hasAlreadyApplied ? (
+                  <div className='w-full rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 py-6 text-center text-xl font-bold text-white shadow-lg'>
+                    <div className='flex items-center justify-center gap-3'>
+                      <span className='text-2xl'>⏳</span>
+                      <span>Your application is being reviewed</span>
+                    </div>
+                    <div className='mt-2 text-sm opacity-90'>
+                      Mommy will contact you once she's reviewed your submission
+                    </div>
+                  </div>
+                ) : (
+                  <Button
+                    onClick={handleApplyClick}
+                    className='w-full transform rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 py-6 text-xl font-bold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-pink-700 hover:to-purple-700'
+                  >
+                    Apply for Invite Code ✨
+                  </Button>
+                )}
+              </div>
+
               {/* Benefits Cards */}
               <div className='space-y-6'>
                 <div className='rounded-xl border border-purple-500/30 bg-white/10 p-6 backdrop-blur-sm'>
@@ -575,28 +597,6 @@ export default function SinkSyncPage() {
                     even better.
                   </p>
                 </div>
-              </div>
-
-              {/* Apply Button or Status */}
-              <div className='pt-8'>
-                {hasAlreadyApplied ? (
-                  <div className='w-full rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 py-6 text-center text-xl font-bold text-white shadow-lg'>
-                    <div className='flex items-center justify-center gap-3'>
-                      <span className='text-2xl'>⏳</span>
-                      <span>Your application is being reviewed</span>
-                    </div>
-                    <div className='mt-2 text-sm opacity-90'>
-                      Mommy will contact you once she's reviewed your submission
-                    </div>
-                  </div>
-                ) : (
-                  <Button
-                    onClick={handleApplyClick}
-                    className='w-full transform rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 py-6 text-xl font-bold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-pink-700 hover:to-purple-700'
-                  >
-                    Apply for Invite Code ✨
-                  </Button>
-                )}
               </div>
             </div>
           </div>

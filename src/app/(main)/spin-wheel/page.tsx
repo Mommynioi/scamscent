@@ -71,8 +71,8 @@ export default function SpinWheelPage() {
   return (
     <div className='flex h-full w-full flex-col'>
       {/* Header */}
-      <div className='flex-shrink-0 py-6 text-center'>
-        <h1 className='font-[family-name:var(--font-rise-and-shine)] text-3xl text-white drop-shadow-2xl'>
+      <div className='flex flex-shrink-0 items-center justify-center py-6'>
+        <h1 className='text-center font-[family-name:var(--font-rise-and-shine)] text-3xl text-white drop-shadow-2xl lg:text-4xl xl:text-5xl'>
           Mommy's Punishment Wheel
         </h1>
       </div>

@@ -1,5 +1,7 @@
 body {
   @apply overscroll-none bg-transparent;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 :root {
@@ -8,7 +10,8 @@ body {
 }
 
 .theme-scaled {
-  @media (min-width: 1024px) {
+  /* Conservative scaling - only for larger desktop displays */
+  @media (min-width: 1024px) and (max-width: 2559px) {
     --radius: 0.6rem;
     --text-lg: 1.05rem;
     --text-base: 0.85rem;
@@ -16,13 +19,69 @@ body {
     --spacing: 0.222222rem;
   }
 
+  /* Enhanced scaling for QHD+ displays (2560px+) */
+  @media (min-width: 2560px) {
+    --radius: clamp(0.6rem, 0.7rem, 0.8rem);
+    --text-lg: clamp(1.05rem, 1.15rem, 1.3rem);
+    --text-base: clamp(0.85rem, 0.95rem, 1.1rem);
+    --text-sm: clamp(0.8rem, 0.9rem, 1rem);
+    --spacing: clamp(0.222222rem, 0.3rem, 0.35rem);
+  }
+
+  /* 4K display optimizations (3840px+) */
+  @media (min-width: 3840px) {
+    --radius: clamp(0.7rem, 0.8rem, 1rem);
+    --text-lg: clamp(1.2rem, 1.4rem, 1.6rem);
+    --text-base: clamp(1rem, 1.2rem, 1.4rem);
+    --text-sm: clamp(0.9rem, 1.1rem, 1.3rem);
+    --text-xs: clamp(0.85rem, 1rem, 1.2rem);
+    --spacing: clamp(0.3rem, 0.4rem, 0.5rem);
+
+    /* Scale heading sizes for 4K */
+    --text-xl: clamp(1.3rem, 1.5rem, 1.8rem);
+    --text-2xl: clamp(1.5rem, 1.8rem, 2.2rem);
+    --text-3xl: clamp(1.8rem, 2.2rem, 2.6rem);
+    --text-4xl: clamp(2.2rem, 2.8rem, 3.2rem);
+
+    /* Enhanced button and interactive element scaling for 4K only */
+    .btn,
+    button,
+    [role='button'] {
+      min-height: clamp(2.5rem, 3rem, 3.5rem);
+      padding-left: clamp(1rem, 1.5rem, 2rem);
+      padding-right: clamp(1rem, 1.5rem, 2rem);
+    }
+
+    /* Scale form inputs for better usability on 4K */
+    input,
+    textarea,
+    select {
+      min-height: clamp(2.5rem, 3rem, 3.5rem);
+      font-size: clamp(0.95rem, 1.1rem, 1.3rem);
+      padding: clamp(0.5rem, 0.75rem, 1rem);
+    }
+  }
+
   [data-slot='card'] {
     --spacing: 0.16rem;
+  }
+
+  @media (min-width: 2560px) {
+    [data-slot='card'] {
+      --spacing: clamp(0.16rem, 0.18rem, 0.22rem);
+    }
   }
 
   [data-slot='select-trigger'],
   [data-slot='toggle-group-item'] {
     --spacing: 0.222222rem;
+  }
+
+  @media (min-width: 2560px) {
+    [data-slot='select-trigger'],
+    [data-slot='toggle-group-item'] {
+      --spacing: clamp(0.222222rem, 0.3rem, 0.35rem);
+    }
   }
 }
 

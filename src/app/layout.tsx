@@ -25,7 +25,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: META_THEME_COLORS.light
+  themeColor: META_THEME_COLORS.light,
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true
 };
 
 export default async function RootLayout({
@@ -38,7 +42,7 @@ export default async function RootLayout({
   const isScaled = activeThemeValue?.endsWith('-scaled');
 
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning className='h-full'>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -54,7 +58,7 @@ export default async function RootLayout({
       </head>
       <body
         className={cn(
-          'bg-pink-grid font-sans antialiased',
+          'bg-pink-grid h-full overflow-x-hidden font-sans antialiased',
           activeThemeValue ? `theme-${activeThemeValue}` : '',
           isScaled ? 'theme-scaled' : '',
           fontVariables

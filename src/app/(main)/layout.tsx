@@ -10,10 +10,10 @@ export default function MainLayout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className='overflow-y-auto bg-transparent'>
-        <div className='flex min-h-screen flex-col'>
+      <SidebarInset className='h-full overflow-hidden bg-transparent'>
+        <div className='flex h-full w-full flex-col'>
           <Header />
-          {children}
+          <main className='flex-1 overflow-auto'>{children}</main>
         </div>
       </SidebarInset>
     </SidebarProvider>

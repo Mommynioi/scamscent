@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { fontVariables } from '@/lib/font';
 import ThemeProvider from '@/components/layout/ThemeToggle/theme-provider';
 import { cn } from '@/lib/utils';
+import KBar from '@/components/kbar';
 import type { Metadata, Viewport } from 'next';
 import { cookies } from 'next/headers';
 import NextTopLoader from 'nextjs-toploader';
@@ -16,8 +17,11 @@ const META_THEME_COLORS = {
 };
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn',
-  description: 'Basic dashboard with Next.js and Shadcn'
+  title: "Nioi's Pinkspace",
+  description: 'Welcome to Nioi&apos;s Pinkspace - are you ready to sink?',
+  icons: {
+    icon: '/favicon.ico'
+  }
 };
 
 export const viewport: Viewport = {
@@ -50,7 +54,7 @@ export default async function RootLayout({
       </head>
       <body
         className={cn(
-          'bg-background overflow-hidden overscroll-none font-sans antialiased',
+          'bg-pink-grid font-sans antialiased',
           activeThemeValue ? `theme-${activeThemeValue}` : '',
           isScaled ? 'theme-scaled' : '',
           fontVariables
@@ -66,8 +70,10 @@ export default async function RootLayout({
             enableColorScheme
           >
             <Providers activeThemeValue={activeThemeValue as string}>
-              <Toaster />
-              {children}
+              <KBar>
+                <Toaster />
+                {children}
+              </KBar>
             </Providers>
           </ThemeProvider>
         </NuqsAdapter>

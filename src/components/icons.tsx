@@ -30,7 +30,20 @@ import {
   IconUserX,
   IconX,
   IconLayoutKanban,
-  IconBrandGithub
+  IconBrandGithub,
+  IconHome,
+  IconBrandDiscord,
+  IconCrown,
+  IconShare,
+  IconCloud,
+  IconFolder,
+  IconDeviceGamepad2,
+  IconDice,
+  IconForms,
+  IconMouse,
+  IconRefresh,
+  IconWheel,
+  IconBrandX
 } from '@tabler/icons-react';
 
 export type Icon = React.ComponentType<IconProps>;
@@ -66,5 +79,22 @@ export const Icons = {
   laptop: IconDeviceLaptop,
   github: IconBrandGithub,
   twitter: IconBrandTwitter,
-  check: IconCheck
+  check: IconCheck,
+  // New icons for linktree theme
+  home: IconHome,
+  image: IconPhoto,
+  discord: IconBrandDiscord,
+  crown: IconCrown,
+  share: IconShare,
+  cloud: IconCloud,
+  folder: IconFolder,
+  gamepad: IconDeviceGamepad2,
+  spiral: IconUser, // Using user icon as placeholder for spiral
+  dice: IconDice,
+  form: IconForms,
+  gallery: IconPhoto,
+  mouse: IconMouse,
+  refresh: IconRefresh,
+  wheel: IconWheel,
+  'brand-x': IconBrandX
 };

@@ -6,6 +6,7 @@ import {
   Mulish,
   Noto_Sans_Mono
 } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { cn } from '@/lib/utils';
 
@@ -39,11 +40,17 @@ const fontInter = Inter({
   variable: '--font-inter'
 });
 
+const fontRiseAndShine = localFont({
+  src: './Rise and Shine.otf',
+  variable: '--font-rise-and-shine'
+});
+
 export const fontVariables = cn(
   fontSans.variable,
   fontMono.variable,
   fontInstrument.variable,
   fontNotoMono.variable,
   fontMullish.variable,
-  fontInter.variable
+  fontInter.variable,
+  fontRiseAndShine.variable
 );

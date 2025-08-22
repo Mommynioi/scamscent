@@ -6,6 +6,47 @@
 
 @import './theme.css';
 
+/* Custom spin wheel animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Custom result animation */
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+/* Hot pink grid background */
+.bg-pink-grid {
+  background-color: #000000;
+  background-image: linear-gradient(
+      rgba(255, 20, 147, 0.3) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 20, 147, 0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

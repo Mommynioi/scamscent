@@ -156,8 +156,8 @@ export default function ClickyGame() {
   };
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center p-8'>
-      {/* Button Container - Fixed position */}
+    <div className='flex h-screen flex-col items-center justify-center p-8'>
+      {/* Button Container - Centered */}
       <div className='flex flex-col items-center space-y-8'>
         {/* Main Click Button */}
         <Button

@@ -36,7 +36,7 @@
   }
 }
 
-/* Hot pink grid background */
+/* Hot pink grid background - responsive for high-resolution displays */
 .bg-pink-grid {
   background-color: #000000;
   background-image: linear-gradient(
@@ -44,7 +44,8 @@
       transparent 1px
     ),
     linear-gradient(90deg, rgba(255, 20, 147, 0.3) 1px, transparent 1px);
-  background-size: 50px 50px;
+  /* Use clamp for responsive grid sizing: min 30px, preferred 3.5vw, max 80px */
+  background-size: clamp(30px, 3.5vw, 80px) clamp(30px, 3.5vw, 80px);
 }
 
 :root {
@@ -158,8 +159,106 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
     @apply bg-background text-foreground;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  #__next {
+    height: 100%;
+  }
+
+  /* Keep normal font size for most displays - only scale for very large 4K+ */
+  @media (min-width: 3840px) {
+    html {
+      font-size: clamp(16px, 0.9vw, 18px);
+    }
+
+    /* Ensure interactive elements are large enough on 4K */
+    button,
+    [role='button'],
+    input,
+    select,
+    textarea {
+      min-height: 3rem;
+      font-size: inherit;
+    }
+
+    /* Scale icons and small elements appropriately */
+    .lucide,
+    .tabler-icon,
+    svg[width='16'],
+    svg[height='16'] {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    svg[width='24'],
+    svg[height='24'] {
+      width: 28px !important;
+      height: 28px !important;
+    }
+  }
+
+  /* Ultra-wide 4K+ displays */
+  @media (min-width: 5120px) {
+    html {
+      font-size: clamp(18px, 1.4vw, 26px);
+    }
+  }
+
+  /* Conservative 4K-specific utility classes - smaller scaling */
+  @media (min-width: 3840px) {
+    .k4-text-4xl {
+      font-size: clamp(1.8rem, 2vw, 2.2rem) !important;
+    }
+    .k4-text-3xl {
+      font-size: clamp(1.5rem, 1.8vw, 2rem) !important;
+    }
+    .k4-text-2xl {
+      font-size: clamp(1.25rem, 1.5vw, 1.7rem) !important;
+    }
+    .k4-text-xl {
+      font-size: clamp(1.1rem, 1.3vw, 1.4rem) !important;
+    }
+    .k4-text-lg {
+      font-size: clamp(1rem, 1.1vw, 1.2rem) !important;
+    }
+
+    .k4-p-8 {
+      padding: 2.5rem !important;
+    }
+    .k4-p-6 {
+      padding: 1.75rem !important;
+    }
+    .k4-py-8 {
+      padding-top: 2.5rem !important;
+      padding-bottom: 2.5rem !important;
+    }
+    .k4-px-12 {
+      padding-left: 2.5rem !important;
+      padding-right: 2.5rem !important;
+    }
+
+    .k4-h-12 {
+      height: 3rem !important;
+    }
+    .k4-w-12 {
+      width: 3rem !important;
+    }
+    .k4-size-12 {
+      width: 3rem !important;
+      height: 3rem !important;
+    }
+
+    .k4-gap-4 {
+      gap: 1.25rem !important;
+    }
+    .k4-space-y-8 > * + * {
+      margin-top: 2rem !important;
+    }
   }
 }
 

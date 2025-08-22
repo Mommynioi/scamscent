@@ -69,20 +69,20 @@ export default function SpinWheelPage() {
   };
 
   return (
-    <div className='flex min-h-screen flex-col'>
+    <div className='flex h-full w-full flex-col'>
       {/* Header */}
-      <div className='py-8 text-center'>
+      <div className='flex-shrink-0 py-6 text-center'>
         <h1 className='font-[family-name:var(--font-rise-and-shine)] text-3xl text-white drop-shadow-2xl'>
           Mommy's Punishment Wheel
         </h1>
       </div>
 
       {/* Main Content Area */}
-      <div className='relative flex flex-1 flex-col lg:flex-row'>
+      <div className='relative flex flex-1 flex-col overflow-hidden lg:flex-row'>
         {/* Wheel Container */}
         <div className='flex flex-1 items-center justify-center p-4'>
           <div className='relative'>
-            {/* Wheel */}
+            {/* Wheel - Enhanced sizing for 4K displays */}
             <div className='relative h-[60vh] max-h-[90vw] w-[60vh] max-w-[90vw] lg:h-[80vh] lg:max-h-[80vw] lg:w-[80vh] lg:max-w-[80vw]'>
               <svg
                 width='100%'

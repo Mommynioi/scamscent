@@ -402,7 +402,7 @@ export default function SinkSyncPage() {
   // Show success message only for fresh submissions, not for returning users
   if (isSubmitted) {
     return (
-      <div className='flex min-h-screen items-center justify-center p-8'>
+      <div className='flex h-full items-center justify-center p-8'>
         <Card className='mx-auto w-full max-w-2xl border-green-200 bg-green-50'>
           <CardHeader className='text-center'>
             <CardTitle className='text-green-800'>
@@ -431,7 +431,7 @@ export default function SinkSyncPage() {
 
   if (showForm) {
     return (
-      <div className='flex min-h-screen items-center justify-center p-8'>
+      <div className='flex h-full items-center justify-center p-8'>
         <div
           className={`w-full max-w-4xl transition-opacity duration-300 ${fadeClass}`}
         >
@@ -517,10 +517,10 @@ export default function SinkSyncPage() {
   }
 
   return (
-    <div className='min-h-screen'>
-      <div className={`transition-opacity duration-300 ${fadeClass}`}>
-        <div className='container mx-auto px-8 py-16'>
-          <div className='grid min-h-[80vh] grid-cols-1 items-center gap-16 lg:grid-cols-2'>
+    <div className='h-full'>
+      <div className={`h-full transition-opacity duration-300 ${fadeClass}`}>
+        <div className='container mx-auto h-full px-8 py-8'>
+          <div className='grid h-full grid-cols-1 items-center gap-8 lg:grid-cols-2'>
             {/* Left Side - Image */}
             <div className='flex items-center justify-center'>
               <div className='w-full max-w-md'>

@@ -71,16 +71,27 @@ export default function SpinWheelPage() {
   return (
     <div className='flex h-full w-full flex-col'>
       {/* Header */}
-      <div className='flex-shrink-0 py-6 text-center'>
-        <h1 className='font-[family-name:var(--font-rise-and-shine)] text-3xl text-white drop-shadow-2xl'>
+      <div className='flex flex-shrink-0 items-center justify-center py-6'>
+        <h1 className='text-center font-[family-name:var(--font-rise-and-shine)] text-3xl text-white drop-shadow-2xl lg:text-4xl xl:text-5xl'>
           Mommy's Punishment Wheel
         </h1>
       </div>
 
       {/* Main Content Area */}
-      <div className='relative flex flex-1 flex-col overflow-hidden lg:flex-row'>
+      <div className='relative flex flex-1 flex-col items-center justify-center overflow-hidden'>
+        {/* Centered Spin Button */}
+        <div className='mb-8 flex justify-center'>
+          <Button
+            onClick={spinWheel}
+            disabled={isSpinning}
+            className='rounded-xl bg-pink-600 px-8 py-6 text-2xl text-white hover:bg-pink-700'
+          >
+            {isSpinning ? 'Spinning...' : 'Spin the Wheel! 🎯'}
+          </Button>
+        </div>
+
         {/* Wheel Container */}
-        <div className='flex flex-1 items-center justify-center p-4'>
+        <div className='flex items-center justify-center p-4'>
           <div className='relative'>
             {/* Wheel - Enhanced sizing for 4K displays */}
             <div className='relative h-[60vh] max-h-[90vw] w-[60vh] max-w-[90vw] lg:h-[80vh] lg:max-h-[80vw] lg:w-[80vh] lg:max-w-[80vw]'>
@@ -269,34 +280,6 @@ export default function SpinWheelPage() {
             </div>
           </div>
         )}
-
-        {/* Rules Panel - Right Side on Desktop, Bottom on Mobile */}
-        <div className='flex w-full flex-col space-y-6 border-pink-500/30 p-6 lg:w-80 lg:border-l'>
-          {/* Spin Button */}
-          <Button
-            onClick={spinWheel}
-            disabled={isSpinning}
-            className='rounded-xl bg-pink-600 px-8 py-6 text-2xl text-white hover:bg-pink-700'
-          >
-            {isSpinning ? 'Spinning...' : 'Spin the Wheel! 🎯'}
-          </Button>
-
-          {/* Instructions */}
-          <Card className='border-purple-500/30 bg-black/20 backdrop-blur-sm'>
-            <CardHeader>
-              <CardTitle className='text-center text-xl text-white'>
-                Rules & Instructions
-              </CardTitle>
-            </CardHeader>
-            <CardContent className='space-y-2 text-gray-300'>
-              <p>• Click the spin button to start the wheel</p>
-              <p>• Complete the task you land on</p>
-              <p>• Good pets always obey their tasks 💕</p>
-              <p>• Some tasks have special actions</p>
-              <p>• Have fun and be a good girl!</p>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </div>
   );
